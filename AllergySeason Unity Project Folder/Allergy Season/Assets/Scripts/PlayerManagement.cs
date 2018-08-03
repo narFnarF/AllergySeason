@@ -29,6 +29,9 @@ public class PlayerManagement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Player1Power = 10;
+        Player2Power = 10;
+
         Player1ScoreDisplay.text = "Score:" + Player1Score;
         Player2ScoreDisplay.text = "Score:" + Player2Score;
 	}
