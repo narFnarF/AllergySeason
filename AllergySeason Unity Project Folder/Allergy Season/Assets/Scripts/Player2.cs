@@ -111,5 +111,15 @@ public class Player2 : MonoBehaviour {
     {
         Destroy(gameObject);
     }
-    
+
+    private void Boost()
+    {
+        PlayerManagement.Instance.riseSpeedP2 += 1;
+    }
+
+    private void Resume()
+    {
+        PlayerManagement.Instance.riseSpeedP2 -= 1;
+    }
+
 }

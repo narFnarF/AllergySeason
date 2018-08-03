@@ -9,6 +9,7 @@ TagManager:
   - Tissue2
   - Player1
   - Player2
+  - irritants
   layers:
   - Default
   - TransparentFX
