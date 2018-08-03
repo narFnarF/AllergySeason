@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4505763044116498}
   - component: {fileID: 212415530755948220}
   - component: {fileID: 95697193583451918}
+  - component: {fileID: 114607219958423904}
   m_Layer: 0
   m_Name: oncleStanding1
   m_TagString: Untagged
@@ -173,6 +174,20 @@ MonoBehaviour:
   tissuePlayer1Prefab: {fileID: 1204345979807032, guid: dc1630aa1f0005d498d81e08c5ca1d03,
     type: 2}
   player1Prefab: {fileID: 1828218240182394}
+--- !u!114 &114607219958423904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1715540686592802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4917c785e77ce25478e046500ccd3300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftMove: 97
+  RightMove: 100
+  Sneeze: 119
 --- !u!212 &212415530755948220
 SpriteRenderer:
   m_ObjectHideFlags: 1
