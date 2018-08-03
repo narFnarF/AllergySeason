@@ -10,8 +10,7 @@ public class PlayerManagement : MonoBehaviour {
     public int Player2Score;
     public int TotalScore;
 
-    public float riseSpeedP1;
-    public float riseSpeedP2;
+    public float riseSpeed;
 
     private static PlayerManagement instance;
     public static PlayerManagement Instance
@@ -34,13 +33,13 @@ public class PlayerManagement : MonoBehaviour {
 	void FixedUpdate () {
         if (Player1Power < 100)
         {
-            Player1Power += Time.fixedDeltaTime * riseSpeedP1;
+            Player1Power += Time.fixedDeltaTime * riseSpeed;
         }
         if (Player2Power < 100)
         {
-            Player2Power += Time.fixedDeltaTime * riseSpeedP2;
+            Player2Power += Time.fixedDeltaTime * riseSpeed;
         }
-        if (TotalScore == 10)
+        if (TotalScore >= 10)
         {
             if (Player1Score > Player2Score)
             {

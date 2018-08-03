@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828218240182394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.93, y: 0, z: 0}
+  m_LocalPosition: {x: -4.32, y: 0.54, z: 0}
   m_LocalScale: {x: 0.15125, y: 0.33725, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,18 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f5bbc0d2150b74a9e3a7ee3b443cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPower: 0
-  stunnedTime: 3
+  stunnedTimeP1: 3
   speed: 3
   thrust: 300
-  riseSpeed: 2
-  tissuePlayerPrefab: {fileID: 1204345979807032, guid: dc1630aa1f0005d498d81e08c5ca1d03,
+  tissuePlayer1Prefab: {fileID: 1204345979807032, guid: dc1630aa1f0005d498d81e08c5ca1d03,
     type: 2}
-  playerPrefab: {fileID: 1828218240182394}
-  leftKey: 97
-  rightKey: 100
-  jumpKey: 119
-  kickKey: 32
+  player1Prefab: {fileID: 1828218240182394}
 --- !u!212 &212962495118355640
 SpriteRenderer:
   m_ObjectHideFlags: 1

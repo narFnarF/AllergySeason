@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player2 : MonoBehaviour {
+public class Player1 : MonoBehaviour
+{
 
     private int h;
     private Rigidbody2D rb;
     private bool isJumped;
-    private bool isStunnedP2;
+    private bool isStunnedP1;
 
-    public float stunnedTimeP2 = 3;
+    public float stunnedTimeP1 = 3;
     public float speed;
     public float thrust;
-    public GameObject tissuePlayer2Prefab;
-    public GameObject player2Prefab;
+    public GameObject tissuePlayer1Prefab;
+    public GameObject player1Prefab;
 
     // Use this for initialization
     void Start()
@@ -24,16 +25,16 @@ public class Player2 : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isStunnedP2)
+        if (isStunnedP1)
         {
-            if (stunnedTimeP2 > 0.1)
+            if (stunnedTimeP1 > 0.1)
             {
-                stunnedTimeP2 -= Time.fixedDeltaTime;
+                stunnedTimeP1 -= Time.fixedDeltaTime;
             }
-            else if (stunnedTimeP2 <= 0.1)
+            else if (stunnedTimeP1 <= 0.1)
             {
-                isStunnedP2 = false;
-                stunnedTimeP2 = 3;
+                isStunnedP1 = false;
+                stunnedTimeP1 = 3;
             }
         }
         else
@@ -47,11 +48,11 @@ public class Player2 : MonoBehaviour {
     private void Move()
     {
         transform.eulerAngles = new Vector3(0, 0, 0);
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * speed * Time.fixedDeltaTime);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * speed * Time.fixedDeltaTime);
         }
@@ -61,25 +62,25 @@ public class Player2 : MonoBehaviour {
     {
         if (!isJumped)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow) && PlayerManagement.Instance.Player2Power >= 10)
+            if (Input.GetKeyDown(KeyCode.W) && PlayerManagement.Instance.Player1Power >= 10)
             {
                 rb.AddForce(new Vector2(0, thrust));
-                Instantiate(tissuePlayer2Prefab, transform.position, Quaternion.identity);
-                PlayerManagement.Instance.Player2Power -= 10;
+                Instantiate(tissuePlayer1Prefab, transform.position + new Vector3(0, -0.15f), Quaternion.identity);
+                PlayerManagement.Instance.Player1Power -= 10;
             }
         }
     }
 
     private void Kick()
     {
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(-0.3f, -0.15f), Vector2.left, 0.8f);
-            if (hit.collider.tag == "Tissue2")
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0.3f, -0.15f), Vector2.right, 0.8f);
+            if (hit.collider.tag == "Tissue1")
             {
                 hit.collider.SendMessage("Kicked");
             }
-            else if (hit.collider.tag == "Tissue1")
+            else if (hit.collider.tag == "Tissue2")
             {
                 hit.collider.SendMessage("KickedByOpponent");
             }
@@ -100,16 +101,22 @@ public class Player2 : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Tissue1")
-        {
-            isStunnedP2 = true;
+        if (collision.collider.tag == "Tissue2")
+         {
+            isStunnedP1 = true;
             collision.collider.SendMessage("Die");
-        }
+         }   
     }
 
     private void Die()
     {
         Destroy(gameObject);
+        Invoke("Born", 5);
     }
-    
+
+    private void Born()
+    {
+        Instantiate(player1Prefab, new Vector3(-4, 0, 0), Quaternion.identity);
+    }
 }
+

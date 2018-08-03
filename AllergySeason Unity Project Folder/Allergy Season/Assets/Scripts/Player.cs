@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_S : MonoBehaviour {
+public class Player : MonoBehaviour {
 
     private int h;
     private Rigidbody2D rb;
@@ -17,7 +17,6 @@ public class Player_S : MonoBehaviour {
     public bool isPlayer1;
     public GameObject tissuePlayer1Prefab;
     public GameObject tissuePlayer2Prefab;
-    public KeyCode leftKey;
 
 	// Use this for initialization
 	void Start () {
@@ -76,7 +75,7 @@ public class Player_S : MonoBehaviour {
         transform.eulerAngles =new Vector3(0,0,0);
         if (isPlayer1)
         {
-            if (Input.GetKey(leftKey))
+            if (Input.GetKey(KeyCode.A))
             {
                 transform.Translate(Vector3.left * speed * Time.fixedDeltaTime);
             }
