@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerManagement : MonoBehaviour {
 
@@ -10,8 +9,6 @@ public class PlayerManagement : MonoBehaviour {
     public int Player1Score;
     public int Player2Score;
     public int TotalScore;
-    public Text Player1ScoreDisplay;
-    public Text Player2ScoreDisplay;
 
     public float riseSpeedP1;
     public float riseSpeedP2;
@@ -30,18 +27,11 @@ public class PlayerManagement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Player1Power = 10;
-        Player2Power = 10;
-
-        Player1ScoreDisplay.text = "Score:" + Player1Score;
-        Player2ScoreDisplay.text = "Score:" + Player2Score;
+		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        Player1ScoreDisplay.text = "Score:" + Player1Score;
-        Player2ScoreDisplay.text = "Score:" + Player2Score;
-
         if (Player1Power < 100)
         {
             Player1Power += Time.fixedDeltaTime * riseSpeedP1;
