@@ -34,3 +34,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Mac OS files
+.DS_Store
+
+# Windows OS files
+#TODO
